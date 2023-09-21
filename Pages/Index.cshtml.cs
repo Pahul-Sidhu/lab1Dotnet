@@ -21,7 +21,12 @@ namespace lab1.Pages
         {
             if (ModelState.IsValid)
             {
-                ZodiacSign = Utils.GetZodiac(Year);
+                if(Year < 1900){
+                    ZodiacSign = "";
+                }else{
+                    ZodiacSign = Utils.GetZodiac(Year);
+                }
+                
                 return Page();
             }
             return BadRequest();
